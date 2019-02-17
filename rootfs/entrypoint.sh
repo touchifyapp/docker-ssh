@@ -29,6 +29,7 @@ fi
 
 # If provided, set authorized key
 if [ -z "$SSH_AUTHORIZED_KEY" ]; then :; else
+    mkdir -p /root/.ssh
     echo "$SSH_AUTHORIZED_KEY" >> /root/.ssh/authorized_keys
 
     if [ -z "$SSH_ROOT_PASSWORD" ]; then

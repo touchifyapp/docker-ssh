@@ -1,6 +1,6 @@
 # Supported tags and respective Dockerfile links
 
-*  [`7.9.2`, `7.9`, `7`, `latest` (Dockerfile)](https://github.com/touchifyapp/docker-ssh/blob/master/Dockerfile)
+*  [`7.9.3`, `7.9`, `7`, `latest` (Dockerfile)](https://github.com/touchifyapp/docker-ssh/blob/master/Dockerfile)
 
 This image is updated via [pull requests to the `touchifyapp/docker-ssh` GitHub repo](https://github.com/touchifyapp/docker-ssh/pulls).
 
@@ -90,6 +90,35 @@ $   --secret ssh_authorized_key \
 $   --env SSH_AUTHORIZED_KEY_FILE=/run/secrets/ssh_authorized_key \
 $   touchifyapp/ssh
 ```
+
+## Configuration
+
+### Environment variables
+
+| Environment variable | Description | Example |
+| --- | --- | --- |
+| SSH_ROOT_PASSWORD | Sets custom root password. | `SSH_ROOT_PASSWORD=mycustompassword` |
+| SSH_ROOT_PASSWORD_FILE | Sets custom root password using a Docker secret. | `SSH_ROOT_PASSWORD_FILE=/run/secrets/ssh_password` |
+| SSH_AUTHORIZED_KEY | Sets the SSH public authorized key. | `SSH_AUTHORIZED_KEY="$(cat ~/.ssh/id_rsa.pub)"` |
+| SSH_AUTHORIZED_KEY_FILE | Sets the SSH public authorized key using a Docker secret. | `SSH_AUTHORIZED_KEY_FILE=/run/secrets/ssh_authorizedkey` |
+| SSH_ALLOW_TCP_FORWARDING | `yes` or `no`. Enable or disable TCP forwarding. | `SSH_ALLOW_TCP_FORWARDING=yes` |
+| SSH_GATEWAY_PORTS | `yes` or `no`. Enable or disable Gateway Ports. | `SSH_GATEWAY_PORTS=yes` |
+
+### Command-line options
+
+You can customize the `sshd` behavior by appending command-line options to your command.
+
+```
+$ docker run -dt \
+$   --name ssh \
+$   -p 2222:22 \
+$   -e SSH_AUTHORIZED_KEY="$(cat ~/.ssh/id_rsa.pub)" \
+$   touchifyapp/ssh \
+$   -o PasswordAuthentication=no \
+$   -v
+```
+
+You can find all command-line options on [the `sshd` manual](https://man.openbsd.org/sshd).
 
 ## License
 

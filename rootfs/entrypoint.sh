@@ -34,7 +34,18 @@ if [ -z "$SSH_AUTHORIZED_KEY" ]; then :; else
 
     if [ -z "$SSH_ROOT_PASSWORD" ]; then
         passwd -d root
+        sed -i -e "s/#?PasswordAuthentication.*/PasswordAuthentication no/g" /etc/ssh/sshd_config
     fi
+fi
+
+# If specified, Set AllowTcpForwarding
+if [ -z "$SSH_ALLOW_TCP_FORWARDING" ] then :; else
+    sed -i -e "s/AllowTcpForwarding.*/AllowTcpForwarding $SSH_ALLOW_TCP_FORWARDING/g" /etc/ssh/sshd_config
+fi
+
+# If specified, Set GatewayPorts
+if [ -z "$SSH_GATEWAY_PORTS" ] then :; else
+    sed -i -e "s/GatewayPorts.*/GatewayPorts $SSH_GATEWAY_PORTS/g" /etc/ssh/sshd_config
 fi
 
 # -D : Do not detach

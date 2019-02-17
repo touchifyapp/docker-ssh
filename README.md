@@ -1,14 +1,14 @@
 # Supported tags and respective Dockerfile links
 
-*  [`2.26.3`, `2.26`, `2`, `latest` (Dockerfile)](https://github.com/touchifyapp/docker-ssh/blob/master/Dockerfile)
+*  [`7.9.0`, `7.9`, `7`, `latest` (Dockerfile)](https://github.com/touchifyapp/docker-ssh/blob/master/Dockerfile)
 
 This image is updated via [pull requests to the `touchifyapp/docker-ssh` GitHub repo](https://github.com/touchifyapp/docker-ssh/pulls).
 
-# [SSH](https://www.ssh.com/): Secure SHell.
+# [OpenSSH](https://www.openssh.com/): Open Secure SHell.
 
-![SSH logo](https://www.ssh.com/s/ssh_logo_dark-400x194-3VkIHAc9.png)
+![OpenSSH logo](https://www.openssh.com/images/openssh.gif)
 
-`SSH` (Secure SHell). The SSH protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network. 
+`OpenSSH` (Secure SHell). The SSH protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network. 
 
 ## How to use
 

@@ -1,6 +1,6 @@
 # Supported tags and respective Dockerfile links
 
-*  [`7.9.0`, `7.9`, `7`, `latest` (Dockerfile)](https://github.com/touchifyapp/docker-ssh/blob/master/Dockerfile)
+*  [`7.9.1`, `7.9`, `7`, `latest` (Dockerfile)](https://github.com/touchifyapp/docker-ssh/blob/master/Dockerfile)
 
 This image is updated via [pull requests to the `touchifyapp/docker-ssh` GitHub repo](https://github.com/touchifyapp/docker-ssh/pulls).
 
